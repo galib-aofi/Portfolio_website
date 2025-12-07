@@ -1,0 +1,184 @@
+:root {
+    --primary: #F77F00;
+    --primary-dark: #D85C00;
+    --accent: #FFD166;
+    --bg-dark: #0D1B2A;
+    --bg-sidebar: #1B263B;
+    --bg-card: #1F2A44;
+    --text-light: #E0E1DD;
+    --text-muted: #B0B3A9;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: "Poppins", sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--bg-sidebar);
+    border-right: 1px solid #222;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.4);
+    position: fixed;
+}
+
+.sidebar-inner {
+    padding: 30px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-inner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-inner::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 15px; /* Reduced gap from nav links */
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.profile img:hover {
+    transform: scale(1.08);
+}
+
+.nav-links {
+    margin-top: 10px; /* Reduced from 40px to 10px */
+}
+
+.nav-item {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background: #1F1F1F;
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    background: var(--primary);
+    transform: translateX(5px);
+    color: var(--bg-dark);
+}
+
+/* CONTENT */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+}
+
+.section {
+    margin-bottom: 80px;
+    padding: 30px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    color: var(--text-light);
+}
+
+/* Headings and highlights */
+h1, h2, h3 {
+    color: var(--primary);
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* BUTTON */
+.btn {
+    padding: 12px 25px;
+    background: var(--primary-dark);
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* SKILLS GRID */
+.skills-grid, .project-grid, .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.skill-card, .project-card, .stat-card {
+    padding: 20px;
+    background: #2B1F16;
+    border-radius: 8px;
+    transition: 0.3s;
+    color: var(--text-light);
+}
+
+.skill-card:hover, .project-card:hover, .stat-card:hover {
+    transform: translateY(-6px);
+    background: #3A261A;
+}
+
+/* TIMELINE */
+.timeline {
+    border-left: 3px solid var(--primary);
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+}
+
+/* ANIMATIONS */
+.fade-up { animation: fadeUp 1s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.slide-in { animation: slideIn 0.8s ease; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+
+.slide-in-left { animation: slideLeft 0.8s ease; }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+
+.slide-in-right { animation: slideRight 0.8s ease; }
+@keyframes slideRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+
+.zoom-in { animation: zoomIn 0.6s ease; }
+@keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+.pop-in { animation: popIn 0.6s ease; }
+@keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .sidebar { position: relative; width: 100%; height: auto; }
+    .sidebar-inner { height: auto; }
+    .content { margin-left: 0; padding: 20px; }
+}
